@@ -1,0 +1,56 @@
+{
+  "name": "API-Authentication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start-dev": "cross-env NODE_ENV=prod nodemon index.js",
+    "test": "cross-env NODE_ENV=test mocha --timeout 5000 __tests__/server/**/*.test.js",
+    "report": "cross-env NODE_ENV=test nyc --reporter=lcov mocha --timeout 5000 __tests__/server/**/*.test.js",
+    "test-report": "cross-env NODE_ENV=test nyc --reporter=text-reporter mocha --timeout 5000 __tests__/server/**/*.test.js",
+    "nyc": "cross-env NODE_ENV=test nyc mocha --timeout 5000 __tests__/server/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsh-anyway/API-Authentication.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cross-env": "^5.1.5",
+    "express": "^4.16.3",
+    "express-promise-router": "^3.0.2",
+    "joi": "^13.3.0",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.1.1",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-facebook-token": "^3.3.0",
+    "passport-google-plus-token": "^2.1.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "faker": "^4.1.0",
+    "mocha": "^5.1.1",
+    "nodemon": "^1.17.4",
+    "nyc": "^11.8.0",
+    "prettier": "^1.12.1",
+    "rewire": "^4.0.1",
+    "sinon": "^5.0.7",
+    "sinon-chai": "^3.0.0"
+  },
+  "nyc": {
+    "exclude": [
+      "__tests__",
+      "node_module"
+    ],
+    "cache": false,
+    "report-dir": "./__tests__/report"
+  }
+}
